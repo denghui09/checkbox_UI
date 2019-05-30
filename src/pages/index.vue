@@ -19,7 +19,7 @@ export default {
         selall:"全"
       },
       checkboxItem: [
-        { name: "选项1", checked: false, disabled: true },
+        { name: "选项1", checked: false, disabled: false },
         { name: "选项2", checked: false, disabled: false },
         { name: "选项3", checked: false, disabled: false }
       ],

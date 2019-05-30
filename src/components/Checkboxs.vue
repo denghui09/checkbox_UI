@@ -131,8 +131,8 @@ input[type="checkbox"] {
 input[type="checkbox"]::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border: 1px solid #d9d9d9;
   background-color: #fff;
   /* display: none */
@@ -152,8 +152,8 @@ input[type="checkbox"]:checked::before {
 input[type="checkbox"]::after {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 input[type="checkbox"]:checked::after {
   position: absolute;
@@ -194,14 +194,14 @@ input[disabled]:hover::before{
 input[type="checkbox"].line::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   background-color: #0052d9;
   border: 1px solid #0052d9;
 }
 input[type="checkbox"].line::after {
   position: absolute;
-  top: 4px;
+  top: 3px;
   left: 2px;
   width: 12px;
   right: 2px;
