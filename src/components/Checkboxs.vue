@@ -12,7 +12,7 @@
             <input type="checkbox" @click="selectAll" :checked="allSelect" class="line">
             <span>{{menu.selmid}}</span>
           </div>
-          <div v-if="checkboxItems.length==selected.length">
+          <div v-else-if="checkboxItems.length==selected.length">
             <input type="checkbox" @click="selectAll" :checked="allSelect">
             <span>{{menu.selall}}</span>
           </div>
