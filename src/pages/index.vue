@@ -4,12 +4,14 @@
     <checkboxs :menu="menus" :checkboxItems="checkboxItems" @changes="changes"></checkboxs>
     <div>{{select}}</div>
     <div>{{selects}}</div>
+    <goto></goto>
   </div>
 </template>
 
 <script>
 import checkbox from "../components/Checkbox";
 import checkboxs from "../components/Checkboxs";
+import goto from "../components/Goto"
 export default {
   data() {
     return {
@@ -19,7 +21,7 @@ export default {
         selall:"全"
       },
       checkboxItem: [
-        { name: "选项1", checked: false, disabled: false },
+        { name: "选项1", checked: false, disabled: true },
         { name: "选项2", checked: false, disabled: false },
         { name: "选项3", checked: false, disabled: false }
       ],
@@ -30,7 +32,7 @@ export default {
         selcle:'清空'
       },
       checkboxItems: [
-        { name: "选项1", checked: false, disabled: false },
+        { name: "选项1", checked: false, disabled: true },
         { name: "选项2", checked: false, disabled: false },
         { name: "选项3", checked: false, disabled: false },
         { name: "选项4", checked: false, disabled: false },
@@ -62,7 +64,8 @@ export default {
   name: "index",
   components: {
     checkbox,
-    checkboxs
+    checkboxs,
+    goto
   }
 };
 </script>

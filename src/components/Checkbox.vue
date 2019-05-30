@@ -175,13 +175,14 @@ input[type="checkbox"].line::before {
 }
 input[type="checkbox"].line::after {
   position: absolute;
-  top: 3px;
-  left: 2px;
-  width: 12px;
-  right: 2px;
-  height: 4px;
-  border-bottom: 1px solid #fff;
-  border-width: 0 0 2px 2px;
+  top: 7px;
+  left: 3px;
+  height: 2px;
+  width: 10px;
+  background-color: #fff;
   content: "";
+  border: none;
+  -webkit-transform:none;
+  -ms-transform: none;
 }
 </style>
