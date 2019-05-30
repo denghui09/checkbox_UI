@@ -26,7 +26,8 @@ export default {
       mumes:{
         selnull:"1",
         selmid:"2",
-        selall:"3"
+        selall:"3",
+        selcle:'清空'
       },
       checkboxItems: [
         { name: "选项1", checked: false, disabled: false },

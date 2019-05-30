@@ -31,7 +31,7 @@
         :checked="item.checked"
         :disabled="item.disabled"
       >
-      <span>{{item.name}}-{{index}}</span>
+      <span>{{item.name}}</span>
     </div>
   </div>
 </template>

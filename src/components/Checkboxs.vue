@@ -17,7 +17,7 @@
             <span>{{mume.selall}}</span>
           </div>
         </div>
-        <button style="color:blue" @click="clean" class="btn">清除</button>
+        <button style="color:blue" @click="clean" class="btn">{{mume.selcle}}</button>
       </div>
       <!-- 主体 -->
       <div class="main">
