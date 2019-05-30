@@ -162,6 +162,9 @@ input[disabled]:checked::before {
   border: 1px solid #d9d9d9;
   background: #fff;
 }
+input[disabled]:hover::before{
+  border: 1px solid #d9d9d9;
+}
 input[type="checkbox"].line::before {
   content: "";
   position: absolute;

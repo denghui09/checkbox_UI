@@ -17,7 +17,7 @@
             <span>{{mume.selall}}</span>
           </div>
         </div>
-        <button style="color:blue" @click="clean" class="btn">{{mume.selcle}}</button>
+        <button style="color:#0052D9 " @click="clean" class="btn">{{mume.selcle}}</button>
       </div>
       <!-- 主体 -->
       <div class="main">
@@ -187,6 +187,9 @@ input[disabled]:checked::before {
   content: "";
   border: 1px solid #d9d9d9;
   background: #fff;
+}
+input[disabled]:hover::before{
+  border: 1px solid #d9d9d9;
 }
 input[type="checkbox"].line::before {
   content: "";
