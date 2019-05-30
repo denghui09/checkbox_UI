@@ -1,0 +1,184 @@
+<template>
+  <div>
+    <input type="checkbox">
+    <span>未选择项</span>
+    <input type="checkbox" checked disabled>
+    <span>已选失效项</span>
+    <input type="checkbox" disabled>
+    <span>未选失效项</span>
+    <input type="checkbox">
+    <span>未选悬停项</span>
+    <input type="checkbox" checked>
+    <span>已选中项</span>
+    <div class="checkbox">
+      <div v-if="selected.length==0">
+        <input type="checkbox" @click="selectAll" :checked="allSelect">
+        <span>{{mume.selnull}}</span>
+      </div>
+      <div v-else-if="checkboxItems.length>selected.length">
+        <input type="checkbox" @click="selectAll" :checked="allSelect" class="line">
+        <span>{{mume.selmid}}</span>
+      </div>
+      <div v-if="checkboxItems.length==selected.length">
+        <input type="checkbox" @click="selectAll" :checked="allSelect">
+        <span>{{mume.selall}}</span>
+      </div>
+    </div>
+    <div v-for="(item, index) in checkboxItems" :key="index" class="item">
+      <input
+        type="checkbox"
+        @click="select(index)"
+        :checked="item.checked"
+        :disabled="item.disabled"
+      >
+      <span>{{item.name}}-{{index}}</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "checkbox",
+  data() {
+    return {
+     
+      selected: [],
+      allSelect: false
+    };
+  },
+
+  props: ["checkboxItems",'mume'],
+  methods: {
+    selectAll() {
+      this.allSelect = !this.allSelect;
+      if (this.allSelect) {
+        for (let i = 0; i < this.checkboxItems.length; i++) {
+          if (!this.checkboxItems[i].disabled) {
+            this.checkboxItems[i].checked = true;
+            this.selected.push(this.checkboxItems[i].name);
+            this.selected = [...new Set(this.selected)];
+          }
+        }
+      } else {
+        for (let i = 0; i < this.checkboxItems.length; i++) {
+          this.checkboxItems[i].checked = false;
+          this.selected = [];
+        }
+      }
+      this.$emit("change", this.selected);
+    },
+    select(a, b) {
+      this.checkboxItems[a].checked = !this.checkboxItems[a].checked;
+      if (this.checkboxItems[a].checked) {
+        this.selected.push(this.checkboxItems[a].name);
+      } else {
+        this.selected.splice(
+          this.selected.indexOf(this.checkboxItems[a].name),
+          1
+        );
+      }
+      console.log(this.selected);
+      if (this.checkboxItems.length == this.selected.length) {
+        this.allSelect = true;
+      } else {
+        this.allSelect = false;
+      }
+      this.$emit("change", this.selected);
+    }
+  }
+};
+</script>
+
+<style scoped>
+.checkbox {
+  margin: 20px 0;
+}
+span {
+  margin-left: 8px;
+}
+.item {
+  margin-bottom: 19px;
+}
+input[type="checkbox"] {
+  position: relative;
+}
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  /* display: none */
+}
+input[type="checkbox"]:hover::before {
+  background-color: rgb(254, 254, 254);
+  content: "";
+  background: #ffffff;
+  border: 1px solid #6697e8;
+}
+input[type="checkbox"]:checked::before {
+  background-color: #fff;
+  content: "";
+  border: 1px solid #0052d9;
+  background: #0052d9;
+}
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+input[type="checkbox"]:checked::after {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 9px;
+  height: 4px;
+  border: 2px solid #fff;
+  border-width: 0 0 2px 2px;
+  -webkit-transform: rotateZ(-45deg);
+  -ms-transform: rotateZ(-45deg);
+  content: "";
+}
+input[disabled] + span {
+  color: #ccc;
+}
+input[disabled]:checked::after {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 9px;
+  height: 4px;
+  border: 2px solid #d9d9d9;
+  border-width: 0 0 2px 2px;
+  -webkit-transform: rotateZ(-45deg);
+  -ms-transform: rotateZ(-45deg);
+  content: "";
+}
+input[disabled]:checked::before {
+  background-color: #fff;
+  content: "";
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+input[type="checkbox"].line::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #0052d9;
+  border: 1px solid #0052d9;
+}
+input[type="checkbox"].line::after {
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 12px;
+  right: 2px;
+  height: 4px;
+  border-bottom: 1px solid #fff;
+  border-width: 0 0 2px 2px;
+  content: "";
+}
+</style>
