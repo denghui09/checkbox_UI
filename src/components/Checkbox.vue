@@ -13,15 +13,15 @@
     <div class="checkbox">
       <div v-if="selected.length==0">
         <input type="checkbox" @click="selectAll" :checked="allSelect">
-        <span>{{mume.selnull}}</span>
+        <span>{{menu.selnull}}</span>
       </div>
       <div v-else-if="checkboxItems.length>selected.length">
         <input type="checkbox" @click="selectAll" :checked="allSelect" class="line">
-        <span>{{mume.selmid}}</span>
+        <span>{{menu.selmid}}</span>
       </div>
       <div v-if="checkboxItems.length==selected.length">
         <input type="checkbox" @click="selectAll" :checked="allSelect">
-        <span>{{mume.selall}}</span>
+        <span>{{menu.selall}}</span>
       </div>
     </div>
     <div v-for="(item, index) in checkboxItems" :key="index" class="item">
@@ -47,7 +47,7 @@ export default {
     };
   },
 
-  props: ["checkboxItems",'mume'],
+  props: ["checkboxItems",'menu'],
   methods: {
     selectAll() {
       this.allSelect = !this.allSelect;

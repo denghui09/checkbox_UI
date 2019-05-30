@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <checkbox  :mume="mume" :checkboxItems="checkboxItem" @change="change"></checkbox>
-    <checkboxs :mume="mumes" :checkboxItems="checkboxItems" @changes="changes"></checkboxs>
+    <checkbox  :menu="menu" :checkboxItems="checkboxItem" @change="change"></checkbox>
+    <checkboxs :menu="menus" :checkboxItems="checkboxItems" @changes="changes"></checkboxs>
     <div>{{select}}</div>
     <div>{{selects}}</div>
   </div>
@@ -13,7 +13,7 @@ import checkboxs from "../components/Checkboxs";
 export default {
   data() {
     return {
-       mume:{
+       menu:{
         selnull:"未",
         selmid:"未全",
         selall:"全"
@@ -23,7 +23,7 @@ export default {
         { name: "选项2", checked: false, disabled: false },
         { name: "选项3", checked: false, disabled: false }
       ],
-      mumes:{
+      menus:{
         selnull:"1",
         selmid:"2",
         selall:"3",
